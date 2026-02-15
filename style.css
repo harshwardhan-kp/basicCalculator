@@ -16,8 +16,8 @@ body {
   background: rgb(238, 174, 202);
   background: radial-gradient(
     circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
+    rgb(255, 167, 230) 0%,
+    rgb(152, 185, 232) 100%
   );
 }
 .container {
@@ -41,6 +41,11 @@ body {
   color: #fff;
   cursor: pointer;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
 }
 .theme-toggler.active {
   color: #333;
@@ -54,10 +59,19 @@ body {
   width: 30px;
   position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: #333;
   z-index: -1;
+}
+/* Style for the SVG icon */
+.toggler-icon {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
 }
 #display {
   margin: 0 10px;
