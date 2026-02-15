@@ -17,6 +17,7 @@ buttons.forEach((item) => {
     }
   };
 });
+
 const themeToggleBtn = document.querySelector(".theme-toggler");
 const calculator = document.querySelector(".dark");
 const toggleIcon = document.querySelector(".toggler-icon");
@@ -26,3 +27,33 @@ themeToggleBtn.onclick = () => {
   themeToggleBtn.classList.toggle("active");
   isDark = !isDark;
 };
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    
+    if (key >= '0' && key <= '9') {
+        display.innerText += key;
+    }
+    else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        display.innerText += key;
+    }
+    else if (key === '.') {
+        display.innerText += '.';
+    }
+    else if (key === 'Enter' || key === '=') {
+        event.preventDefault();
+        if (display.innerText != "") {
+            display.innerText = eval(display.innerText);
+        } else {
+            display.innerText = "Empty!";
+            setTimeout(() => (display.innerText = ""), 2000);
+        }
+    }
+    else if (key === 'Escape' || key === 'c' || key === 'C') {
+        display.innerText = "";
+    }
+    else if (key === 'Backspace') {
+        let string = display.innerText.toString();
+        display.innerText = string.substr(0, string.length - 1);
+    }
+});
